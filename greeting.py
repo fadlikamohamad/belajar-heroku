@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-app = Flask(__name__)
+flask_app = Flask(__name__)
 
 
-@app.route('/getmsg/', methods=['GET'])
+@flask_app.route('/getmsg/', methods=['GET'])
 def respond():
     # Retrieve the name from the url parameter /getmsg/?name=
     name = request.args.get("name", None)
@@ -25,14 +25,14 @@ def respond():
     return jsonify(response)
 
 
-@app.route('/post/', methods=['POST'])
+@flask_app.route('/post/', methods=['POST'])
 def post_something():
     param = request.form.get('name')
     print(param)
     # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
     if param:
         return jsonify({
-            "Message": f"Welcome {name} to our awesome API!",
+            "Message": f"Welcome {param} to our awesome API!",
             # Add this option to distinct the POST request
             "METHOD": "POST"
         })
@@ -42,7 +42,7 @@ def post_something():
         })
 
 
-@app.route('/')
+@flask_app.route('/')
 def index():
     # A welcome message to test our server
     return "<h1>Welcome to our medium-greeting-api!</h1>"
@@ -50,4 +50,4 @@ def index():
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    flask_app.run(threaded=True, port=5000)
