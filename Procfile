@@ -1,1 +1,1 @@
-web: gunicorn greeting:flask_app
+web: gunicorn server:flask_app
