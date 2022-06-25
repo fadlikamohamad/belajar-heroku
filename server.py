@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify, make_response
 from flask_restplus import Api, Resource, fields
 from tensorflow.keras import models
 import numpy as np
-from keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 # from flask_mysqldb import MySQL
 import base64
 from PIL import Image
