@@ -2,8 +2,8 @@ from click import echo
 import flask
 import flask.scaffold
 flask.helpers._endpoint_from_view_func = flask.scaffold._endpoint_from_view_func
-import werkzeug
-werkzeug.cached_property = werkzeug.utils.cached_property
+# import werkzeug
+# werkzeug.cached_property = werkzeug.utils.cached_property
 from flask import Flask, request, jsonify, make_response
 from flask_restplus import Api, Resource, fields
 from keras import models
