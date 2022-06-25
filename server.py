@@ -61,7 +61,7 @@ class MainClass(Resource):
 		file = base64.b64encode(img_byte)
 		img = img.resize((100, 100), Image.NEAREST)
 		img_array = image.img_to_array(img).astype('float32')/255
-		img_array = np.expand_dims(img_array)
+		img_array = np.expand_dims(img_array, axis=0)
 
 		predictions = loaded_model.predict(img_array)
 		class_names = ['benign', 'malignant']
